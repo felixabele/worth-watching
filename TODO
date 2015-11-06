@@ -1,0 +1,9 @@
+- movies:
+  title
+  description
+  available_since
+  genre
+  country
+  year
+  languages: {}
+  stores: {}
