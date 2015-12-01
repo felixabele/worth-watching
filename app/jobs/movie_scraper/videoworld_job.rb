@@ -1,3 +1,4 @@
+# Call me: MovieScraper::VideoworldJob.perform_now
 class MovieScraper::VideoworldJob < ActiveJob::Base
   queue_as :default
 

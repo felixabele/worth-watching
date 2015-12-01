@@ -17,6 +17,8 @@ class Movie
 
   embeds_one :information, class_name: "MovieInformation"
 
+  scope :with_information, -> { where(:"information".exists => true) }
+
   def load_information
     if last_information_update.nil? || last_information_update < 7.days.ago
       self.update_attributes({

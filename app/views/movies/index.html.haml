@@ -1,5 +1,30 @@
-%h1 Movie#index
-%p Find me in app/views/movie/index.html.haml
+%h1 Movie
 
 %div{ng: {controller: 'MoviesCtrl'}}
-  %h2 {{movies_count}}
+
+  #movies_serch.panel
+    .input-group
+      %input.form-control{placeholder: "Search for...", type: "text", 'ng-model' => 'search_term'}
+      %span.input-group-btn
+        %button.btn.btn-default{type: "button"} Go!
+
+
+  %table.table.table-condensed.movies
+
+    %thead
+      %tr
+        %th{ng: {click: "sort_column('title')"}}
+          = t('movies.title')
+        %th{ng: {click: "sort_column('available_since')"}}
+          = t('movies.available_since')
+        %th{ng: {click: "sort_column('information.vote_average')"}}
+          = t('movie.information.vote_average')
+
+    %tbody
+      %tr.movie{ng: {repeat: 'movie in movies | orderBy:sort_type:sort_reverse | filter:search_term'}}
+        %td
+          %strong {{movie.title}}
+        %td
+          {{movie.available_since}}
+        %td
+          .badge {{movie.information.vote_average}}

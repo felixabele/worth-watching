@@ -1,3 +1,4 @@
+# Call me: UpdateMovieInformationJob.perform_now
 class UpdateMovieInformationJob < ActiveJob::Base
   queue_as :default
 

@@ -15,7 +15,6 @@ class MovieInformation
   embedded_in :movie
 
   # gets infos about a movie from TMDB-API
-  # TODO: get only movies of the same year
   def self.load_by_movie movie
 
     Tmdb::Api.key(Rails.application.secrets.tmdb_key)
@@ -23,9 +22,10 @@ class MovieInformation
     search.resource('movie')
     search.query(movie.title)
 
-    if data = search.fetch.first
+    if data = search.fetch.select {|info| Date.parse(info['release_date']).year == movie.year}
       new(data)
     else
+      logger.debug "could not find information for #{movie.title} from year: #{movie.year}"
       nil
     end
   end
