@@ -1,3 +1,4 @@
 asset 'angular'
 asset 'angular-resource'
-asset 'bootstrap-sass-official'
+asset 'angular-utils-pagination'
+asset 'bootswatch-dist', '3.3.5-simplex'

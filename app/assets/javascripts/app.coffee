@@ -1,5 +1,6 @@
 #= require angular/angular
 #= require angular-resource/angular-resource
+#= require angular-utils-pagination
 
 #= require_self
 #= require_tree ./app/directives/
@@ -15,6 +16,7 @@ app = angular.module('WorthWatching',[
   'app.filters'
   'app.resources'
   'app.services'
+  'angularUtils.directives.dirPagination'
 ])
 
 angular.module 'app.controllers', []

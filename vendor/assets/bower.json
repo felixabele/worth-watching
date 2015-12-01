@@ -3,6 +3,7 @@
   "dependencies": {
     "angular": "latest",
     "angular-resource": "latest",
-    "bootstrap-sass-official": "latest"
+    "angular-utils-pagination": "latest",
+    "bootswatch-dist": "3.3.5-simplex"
   }
 }

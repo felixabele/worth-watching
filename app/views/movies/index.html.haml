@@ -1,30 +1,33 @@
-%h1 Movie
+.page-header
+  %h1= t('movies.title')
 
-%div{ng: {controller: 'MoviesCtrl'}}
+  %div{ng: {controller: 'MoviesCtrl'}}
 
-  #movies_serch.panel
-    .input-group
-      %input.form-control{placeholder: "Search for...", type: "text", 'ng-model' => 'search_term'}
-      %span.input-group-btn
-        %button.btn.btn-default{type: "button"} Go!
+    #movies_serch.panel
+      .input-group
+        %input.form-control{placeholder: "Search for...", type: "text", 'ng-model' => 'search_term'}
+        %span.input-group-btn
+          %button.btn.btn-default{type: "button"} Go!
 
 
-  %table.table.table-condensed.movies
+    %table.table.table-condensed.movies
 
-    %thead
-      %tr
-        %th{ng: {click: "sort_column('title')"}}
-          = t('movies.title')
-        %th{ng: {click: "sort_column('available_since')"}}
-          = t('movies.available_since')
-        %th{ng: {click: "sort_column('information.vote_average')"}}
-          = t('movie.information.vote_average')
+      %thead
+        %tr
+          %th{ng: {click: "sort_column('title')"}}
+            = t('movies.title')
+          %th{ng: {click: "sort_column('available_since')"}}
+            = t('movies.available_since')
+          %th{ng: {click: "sort_column('information.vote_average')"}}
+            = t('movie.information.vote_average')
 
-    %tbody
-      %tr.movie{ng: {repeat: 'movie in movies | orderBy:sort_type:sort_reverse | filter:search_term'}}
-        %td
-          %strong {{movie.title}}
-        %td
-          {{movie.available_since}}
-        %td
-          .badge {{movie.information.vote_average}}
+      %tbody
+        %tr.movie{dir: {paginate: 'movie in movies | orderBy:sort_type:sort_reverse | filter:search_term | itemsPerPage:20'}}
+          %td
+            %strong {{movie.title}}
+          %td
+            {{movie.available_since}}
+          %td
+            .badge {{movie.information.vote_average}}
+
+    %dir-pagination-controls
