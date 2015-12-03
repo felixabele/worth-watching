@@ -1,6 +1,7 @@
 #= require angular/angular
 #= require angular-resource/angular-resource
 #= require angular-utils-pagination
+#= require angular-bootstrap
 
 #= require_self
 #= require_tree ./app/directives/
@@ -17,6 +18,7 @@ app = angular.module('WorthWatching',[
   'app.resources'
   'app.services'
   'angularUtils.directives.dirPagination'
+  'ui.bootstrap'
 ])
 
 angular.module 'app.controllers', []

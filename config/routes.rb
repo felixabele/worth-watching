@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     get 'movies', to: 'movies#index'
   end
 
-  resources :movies, only: [:index]
+  resources :movies, only: [:index, :show]
 
   root to: 'visitors#index'
 end

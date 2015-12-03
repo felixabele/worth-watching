@@ -6,6 +6,8 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+Mongoid::Serializer.configure!
+
 module WorthWatching
   class Application < Rails::Application
 
@@ -36,7 +38,6 @@ module WorthWatching
     # config.i18n.default_locale = :de
 
     config.assets.paths << Rails.root.join("vendor","assets","bower_components")
-    config.assets.paths << Rails.root.join("vendor","assets","bower_components","bootstrap-sass-official","assets","fonts")
     config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff|woff2)$)
 
     # Do not swallow errors in after_commit/after_rollback callbacks.

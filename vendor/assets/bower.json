@@ -4,6 +4,6 @@
     "angular": "latest",
     "angular-resource": "latest",
     "angular-utils-pagination": "latest",
-    "bootswatch-dist": "3.3.5-simplex"
+    "angular-bootstrap": "latest"
   }
 }

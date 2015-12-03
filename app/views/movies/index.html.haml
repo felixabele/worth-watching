@@ -1,19 +1,21 @@
 .page-header
-  %h1= t('movies.title')
+  %h1= t('.title')
 
   %div{ng: {controller: 'MoviesCtrl'}}
 
-    #movies_serch.panel
-      .input-group
-        %input.form-control{placeholder: "Search for...", type: "text", 'ng-model' => 'search_term'}
-        %span.input-group-btn
-          %button.btn.btn-default{type: "button"} Go!
+    #movies_serch.panel.panel-default
+      .panel-body
+        .form-group
+          %input.form-control{placeholder: t('.search_term.placeholder'), type: "text", 'ng-model' => 'filter.search_term'}
 
+        .form-group
+          %select.form-control{ng: {model: 'filter.min_vote', options: "idx as rate for (idx, rate) in options.ratings"}}
 
     %table.table.table-condensed.movies
 
       %thead
         %tr
+          %td
           %th{ng: {click: "sort_column('title')"}}
             = t('movies.title')
           %th{ng: {click: "sort_column('available_since')"}}
@@ -22,12 +24,22 @@
             = t('movie.information.vote_average')
 
       %tbody
-        %tr.movie{dir: {paginate: 'movie in movies | orderBy:sort_type:sort_reverse | filter:search_term | itemsPerPage:20'}}
+        %tr.movie{dir: {paginate: 'movie in movies | orderBy:filter.sort_type:filter.sort_reverse | filter:{title: filter.search_term} | minVoting:filter.min_vote | itemsPerPage:20'}}
+          %td
+            %button.btn.btn-info.btn-xs{popover: {title: "{{movie.title}}", placement: 'right', trigger: 'focus'}, "uib-popover-template" => "movie.path"}
+              %span.glyphicon.glyphicon-info-sign{'aria-hidden' => "true"}
           %td
             %strong {{movie.title}}
           %td
             {{movie.available_since}}
           %td
-            .badge {{movie.information.vote_average}}
+            .votes{ng: {if: 'movie.information.vote_count'}}
+              .badge {{movie.information.vote_average}}
+              {{movie.information.vote_count}}
+              = t('.vote_count')
+
+            .no-votes{ng: {if: 'movie.information.vote_count == 0'}}
+              = t('.no_votes')
 
     %dir-pagination-controls
+    #movie_information_popover

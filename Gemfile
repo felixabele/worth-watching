@@ -9,6 +9,8 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'nokogiri'
+gem 'active_model_serializers'
+gem 'mongoid-serializer'
 
 gem 'themoviedb'
 

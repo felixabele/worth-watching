@@ -1,0 +1,17 @@
+.movie-information
+  %dl.dl-horiontal
+
+    %dt= t('movie.year')
+    %dd= @movie.year
+
+    %dt= t('movie.country')
+    %dd= @movie.country
+
+    %dt= t('movie.available_since')
+    %dd= l(@movie.available_since)
+
+    %dt= t('movie.genres')
+    %dd= @movie.genres.join(', ')
+
+    %dt= t('movie.description')
+    %dd= @movie.description
