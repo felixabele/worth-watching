@@ -19,8 +19,10 @@ class MovieInformation
   end
 
   def image_path size=0
-    conf = ApiConfiguration.load
-    "#{conf.base_url}#{conf.poster_sizes[0]}#{poster_path}"
+    if attribute_present?(:poster_path)
+      conf = ApiConfiguration.load
+      "#{conf.base_url}#{conf.poster_sizes[0]}#{poster_path}"
+    end
   end
 
   # gets infos about a movie from TMDB-API

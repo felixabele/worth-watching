@@ -29,4 +29,8 @@ class Movie
     end
     information
   end
+  # 
+  # def information
+  #   read_attribute(:information) || MovieInformation.new
+  # end
 end

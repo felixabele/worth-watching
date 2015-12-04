@@ -9,7 +9,12 @@
           %input.form-control{placeholder: t('.search_term.placeholder'), type: "text", 'ng-model' => 'filter.search_term'}
 
         .form-group
-          %select.form-control{ng: {model: 'filter.min_vote', options: "idx as rate for (idx, rate) in options.ratings"}}
+          .row
+            .col-md-6
+              %select.form-control{ng: {model: 'filter.min_vote', options: "idx as rate for (idx, rate) in options.min_vote"}}
+
+            .col-md-6
+              %select.form-control{ng: {model: 'filter.available_since', options: "date.days as date.label for date in options.available_since"}}
 
     %table.table.table-condensed.movies
 
@@ -24,7 +29,7 @@
             = t('movie.information.vote_average')
 
       %tbody
-        %tr.movie{dir: {paginate: 'movie in movies | orderBy:filter.sort_type:filter.sort_reverse | filter:{title: filter.search_term} | minVoting:filter.min_vote | itemsPerPage:20'}}
+        %tr.movie{dir: {paginate: 'movie in movies | orderBy:filter.sort_type:filter.sort_reverse | filter:{title: filter.search_term} | minVoting:filter.min_vote | sinceDays:filter.available_since | itemsPerPage:20'}}
           %td
             %button.btn.btn-info.btn-xs{popover: {title: "{{movie.title}}", placement: 'right', trigger: 'focus'}, "uib-popover-template" => "movie.path"}
               %span.glyphicon.glyphicon-info-sign{'aria-hidden' => "true"}

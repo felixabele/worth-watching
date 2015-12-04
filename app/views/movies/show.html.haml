@@ -20,6 +20,7 @@
       - if @movie.information
         = image_tag @movie.information.thumbnail_path
 
-  %hr
-  %h4= t('movie.description')
-  %p= @movie.description
+  - if @movie.description.present?
+    %hr
+    %h4= t('movie.description')
+    %p= @movie.description
