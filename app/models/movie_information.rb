@@ -34,7 +34,7 @@ class MovieInformation
     if data = search.fetch.select {|info| Date.parse(info['release_date']).year == movie.year}
       new(data)
     else
-      logger.debug "could not find information for #{movie.title} from year: #{movie.year}"
+      EventLogger.log! "no information found", "could not find information for #{movie.title} from year: #{movie.year}"
       nil
     end
   end

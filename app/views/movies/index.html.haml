@@ -31,7 +31,7 @@
           %td
             %strong {{movie.title}}
           %td
-            {{movie.available_since}}
+            {{movie.available_since | date:mediumDate}}
           %td
             .votes{ng: {if: 'movie.information.vote_count'}}
               .badge {{movie.information.vote_average}}

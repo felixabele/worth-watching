@@ -31,7 +31,7 @@ class ApiConfiguration
 
     self.delete_all
     new_config.save!
-    logger.debug "Created new config"
+    EventLogger.log! "new config"
 
     return new_config
   end

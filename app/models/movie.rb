@@ -24,6 +24,8 @@ class Movie
       self.update_attributes({
         information: MovieInformation.load_by_movie(self),
         last_information_update: Time.now})
+
+      EventLogger.log! "Updated information", "for movie: '#{self.title}'", {id: self.id}
     end
     information
   end
