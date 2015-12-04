@@ -1,17 +1,25 @@
 .movie-information
-  %dl.dl-horiontal
 
-    %dt= t('movie.year')
-    %dd= @movie.year
 
-    %dt= t('movie.country')
-    %dd= @movie.country
+  .row
+    .col-md-8.col-xs-6
+      .row
+        .col-md-4.strong= t('movie.year')
+        .col-md-8= @movie.year
+      .row
+        .col-md-4.strong= t('movie.country')
+        .col-md-8= @movie.country
+      .row
+        .col-md-4.strong= t('movie.available_since')
+        .col-md-8= l(@movie.available_since)
+      .row
+        .col-md-4.strong= t('movie.genres')
+        .col-md-8= @movie.genres.join(', ')
 
-    %dt= t('movie.available_since')
-    %dd= l(@movie.available_since)
+    .col-md-4.col-xs-6.text-right
+      - if @movie.information
+        = image_tag @movie.information.thumbnail_path
 
-    %dt= t('movie.genres')
-    %dd= @movie.genres.join(', ')
-
-    %dt= t('movie.description')
-    %dd= @movie.description
+  %hr
+  %h4= t('movie.description')
+  %p= @movie.description

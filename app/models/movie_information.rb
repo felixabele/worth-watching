@@ -14,6 +14,15 @@ class MovieInformation
 
   embedded_in :movie
 
+  def thumbnail_path
+    image_path(0)
+  end
+
+  def image_path size=0
+    conf = ApiConfiguration.load
+    "#{conf.base_url}#{conf.poster_sizes[0]}#{poster_path}"
+  end
+
   # gets infos about a movie from TMDB-API
   def self.load_by_movie movie
 
