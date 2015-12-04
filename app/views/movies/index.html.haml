@@ -8,22 +8,23 @@
         .form-group
           %input.form-control{placeholder: t('.search_term.placeholder'), type: "text", 'ng-model' => 'filter.search_term'}
 
-        .form-group
-          .row
-            .col-md-6
-              %select.form-control{ng: {model: 'filter.min_vote', options: "idx as rate for (idx, rate) in options.min_vote"}}
+        .row
+          .form-group.col-xs-6
+            %label= t('.filter.min_vote')
+            %select.form-control{ng: {model: 'filter.min_vote', options: "idx as rate for (idx, rate) in options.min_vote"}}
 
-            .col-md-6
-              %select.form-control{ng: {model: 'filter.available_since', options: "date.days as date.label for date in options.available_since"}}
+          .form-group.col-xs-6
+            %label= t('.filter.available_since')
+            %select.form-control{ng: {model: 'filter.available_since', options: "date.days as date.label for date in options.available_since"}}
 
     %table.table.table-condensed.movies
 
       %thead
         %tr
-          %td
+          %th
           %th{ng: {click: "sort_column('title')"}}
             = t('movies.title')
-          %th{ng: {click: "sort_column('available_since')"}}
+          %th.hidden-xs{ng: {click: "sort_column('available_since')"}}
             = t('movies.available_since')
           %th{ng: {click: "sort_column('information.vote_average')"}}
             = t('movie.information.vote_average')
@@ -35,15 +36,16 @@
               %span.glyphicon.glyphicon-info-sign{'aria-hidden' => "true"}
           %td
             %strong {{movie.title}}
-          %td
+          %td.hidden-xs
             {{movie.available_since | date:mediumDate}}
           %td
             .votes{ng: {if: 'movie.information.vote_count'}}
-              .badge {{movie.information.vote_average}}
-              {{movie.information.vote_count}}
-              = t('.vote_count')
+              .badge {{movie.information.vote_average | number:1}}
+              %span.dont-wrap
+                {{movie.information.vote_count}}
+                = t('.vote_count')
 
-            .no-votes{ng: {if: 'movie.information.vote_count == 0'}}
+            .no-votes.dont-wrap{ng: {if: 'movie.information.vote_count == 0'}}
               = t('.no_votes')
 
     %dir-pagination-controls

@@ -10,7 +10,7 @@ angular.module('app.controllers')
   $scope.movies = []
 
   $scope.options =
-    min_vote: ['chose minimum rating',1,2,3,4,5,6,7,8,9]
+    min_vote: ['Show all',1,2,3,4,5,6,7,8,9]
     available_since: [
       {label: '3 Months', days: 90},
       {label: '1 Month',  days: 30},
@@ -19,9 +19,9 @@ angular.module('app.controllers')
     ]
 
   $scope.filter =
-    min_vote: 0
+    min_vote: '0'
+    available_since: $scope.options.available_since[0].days
     search_term: ''
-    available_since: $scope.options.available_since[0]
     sort_reverse: false
     sort_type: 'title'
 

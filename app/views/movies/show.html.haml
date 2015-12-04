@@ -16,6 +16,12 @@
         .col-md-4.strong= t('movie.genres')
         .col-md-8= @movie.genres.join(', ')
 
+      - if moviedb_path = @movie.moviedb_path
+        %p.margin-top-40
+          = link_to moviedb_path, target: '_blank' do
+            = glyphicon('share')
+            = t('.moviedb_path')
+
     .col-md-4.col-xs-6.text-right
       - if @movie.information
         = image_tag @movie.information.thumbnail_path

@@ -10,7 +10,10 @@ angular.module('app.filters')
       days_ago = (days) ->
         new Date().setDate(new Date().getDate() - days)
 
-      $filter('filter')(
-        list, (val) ->
-          new Date(val.available_since) > days_ago(days))
+      if days > 0
+        $filter('filter')(
+          list, (val) ->
+            new Date(val.available_since) > days_ago(days))
+      else
+        list
 ]

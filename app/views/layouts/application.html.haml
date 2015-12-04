@@ -16,3 +16,11 @@
       .container
         = render 'layouts/messages'
         = yield
+
+
+    %footer
+      .container
+        .text-right
+          = t('footer.powered_by')
+          = link_to 'https://www.themoviedb.org', title: 'themoviedb.org' do
+            = image_tag 'https://assets.tmdb.org/images/logos/var_4_0_tmdb-logo-1Line-Blk-Bree.svg', width: '200px'

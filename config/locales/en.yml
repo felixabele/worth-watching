@@ -6,3 +6,10 @@ en:
         placeholder: Search for...
       vote_count: votes
       no_votes: No votes yet
+
+      filter:
+        min_vote: Minimum Vote
+        available_since: Available Since
+
+    show:
+      moviedb_path: View more Information at themoviedb.org

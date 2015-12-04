@@ -29,8 +29,10 @@ class Movie
     end
     information
   end
-  # 
-  # def information
-  #   read_attribute(:information) || MovieInformation.new
-  # end
+
+  def moviedb_path
+    if information.present?
+      "https://www.themoviedb.org/movie/#{information._id}"
+    end
+  end
 end
