@@ -254,7 +254,6 @@ GEM
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
-    sqlite3 (1.3.11)
     themoviedb (0.1.0)
       httparty
     thor (0.19.1)
@@ -318,7 +317,6 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-commands-rspec
-  sqlite3
   themoviedb
   uglifier (>= 1.3.0)
   unicorn
