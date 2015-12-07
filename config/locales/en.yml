@@ -1,4 +1,8 @@
 en:
+  layouts:
+    navigation_links:
+      movies: Movies
+
   movies:
     index:
       title: Movies
