@@ -10,6 +10,7 @@ class Movie
   field :languages, type: Array
   field :stores, type: Array
   field :title, type: String
+  field :title_alternatives, type: Array, default: []
   field :year, type: Integer
   field :last_information_update, type: DateTime
 
@@ -19,12 +20,16 @@ class Movie
 
   scope :with_information, -> { where(:"information".exists => true) }
 
+  def titles
+    title_alternatives.dup.push(title)
+  end
+
   def description
     read_attribute(:description) || (information.present? ? information.overview : '')
   end
 
-  def load_information
-    if last_information_update.nil? || last_information_update < 7.days.ago
+  def load_information force=false
+    if force || (last_information_update.nil? || last_information_update < 7.days.ago)
 
       if movie_info = MovieInformation.load_by_movie(self)
         self.update_attributes({

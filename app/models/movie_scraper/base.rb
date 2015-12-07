@@ -16,7 +16,7 @@ class MovieScraper::Base
   private
 
   def get_html_doc
-    Nokogiri::HTML(open(get_url)) do |config|
+    Nokogiri::HTML(open(get_url, 'User-Agent' => user_agent), nil, "UTF-8") do |config|
       config.strict.nonet
     end
   end
@@ -26,5 +26,9 @@ class MovieScraper::Base
       m.stores.push(store)
       m.save
     end
+  end
+
+  def user_agent
+    "Mozilla/5.0 (Macintosh; U; Intel Mac OS X; de-de) AppleWebKit/523.10.3 (KHTML, like Gecko) Version/3.0.4 Safari/523.10"
   end
 end

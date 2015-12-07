@@ -28,15 +28,26 @@ class MovieInformation
 
   # gets infos about a movie from TMDB-API
   def self.load_by_movie movie
-    search = Tmdb::Search.new
-    search.resource('movie')
-    search.query(movie.title)
 
-    if data = search.fetch.select {|info| (movie.year - (Date.parse(info['release_date']).year rescue 0)) < 3}
+    movie_data = []
+    movie.titles.each do |alt_title|
+      movie_data = get_data_from_api(alt_title) if movie_data.empty?
+    end
+
+    if (data = movie_data.select {|info| (movie.year - (Date.parse(info['release_date']).year rescue 0)) < 3}).any?
       new(data.first)
     else
       EventLogger.log! "no information found", "could not find information for #{movie.title} from year: #{movie.year}"
       nil
     end
+  end
+
+  private
+
+  def self.get_data_from_api title
+    search = Tmdb::Search.new
+    search.resource('movie')
+    search.query(title)
+    search.fetch
   end
 end

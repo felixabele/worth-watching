@@ -14,7 +14,7 @@
         .col-md-8= l(@movie.available_since)
       .row
         .col-md-4.strong= t('movie.genres')
-        .col-md-8= @movie.genres.join(', ')
+        .col-md-8= @movie.genres.join(', ') if @movie.genres
 
       - if moviedb_path = @movie.moviedb_path
         %p.margin-top-40

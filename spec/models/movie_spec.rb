@@ -1,11 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe Movie, type: :model do
+RSpec.describe Movie, type: :model, vcr: {record: :once} do
 
   subject { build(:movie) }
-  before do
-    allow(MovieInformation).to receive(:load_by_movie) { build(:movie_information) }
-  end
 
   it 'creates a movie dataset' do
     expect(subject.year).to be 2015
@@ -14,7 +11,18 @@ RSpec.describe Movie, type: :model do
   end
 
   it 'gets movie information from TMDB Database' do
+
+    allow(MovieInformation).to receive(:load_by_movie) { build(:movie_information) }
+
     movie = create(:movie)
+    movie.load_information
+
+    expect(movie.information).to be_present
+    expect(movie.last_information_update).to be_present
+  end
+
+  it 'use alternative title if no information is found' do
+    movie = create(:movie, title: 'Eselscape Plan - Entkommen oder Sterben', title_alternatives: ['Escape Plan'])
     movie.load_information
 
     expect(movie.information).to be_present
