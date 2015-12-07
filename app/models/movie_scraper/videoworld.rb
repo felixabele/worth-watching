@@ -1,7 +1,7 @@
 # populates movie datasets from videoworld website
 require 'open-uri'
 
-class MovieScraper::Videoworld
+class MovieScraper::Videoworld < MovieScraper::Base
 
   attr_accessor :movies, :pages, :doc, :current_page
 
@@ -15,11 +15,7 @@ class MovieScraper::Videoworld
     existing_movies = Movie.where(title: {'$in' => @movies.map(&:title)})
     existing_movies_title = existing_movies.pluck(:title)
 
-    # update existing movies
-    existing_movies.where(stores: {'$ne' => 'videoworld'}).each do |m|
-      m.stores.push('videoworld')
-      m.save
-    end
+    update_existing_movies(existing_movies, 'videoworld')
 
     new_movies = @movies.reject{|m| existing_movies_title.find_index{|em| em == m.title}}
     Movie.collection.insert_many new_movies.map(&:as_document)
@@ -57,12 +53,6 @@ class MovieScraper::Videoworld
         description: movie_atts[5],
         stores: ['videoworld'],
       })
-    end
-  end
-
-  def get_html_doc
-    Nokogiri::HTML(open(get_url)) do |config|
-      config.strict.nonet
     end
   end
 

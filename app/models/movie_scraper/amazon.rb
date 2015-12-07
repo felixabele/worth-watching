@@ -1,31 +1,18 @@
-# populates movie datasets from videoworld website
+# populates movie datasets from amazon website
 require 'open-uri'
 
-class MovieScraper::Amazon
+class MovieScraper::Amazon < MovieScraper::Base
 
   attr_accessor :movies, :doc
-
-  def initialize
-    @movies = []
-  end
 
   def save!
     existing_movies = Movie.where(title: {'$in' => @movies.map(&:title)})
     existing_movies_title = existing_movies.pluck(:title)
 
-    # update existing movies
-    existing_movies.where(stores: {'$ne' => 'amazon'}).each do |m|
-      m.stores.push('amazon')
-      m.save
-    end
+    update_existing_movies(existing_movies, 'amazon')
 
     new_movies = @movies.reject{|m| existing_movies_title.find_index{|em| em == m.title}}
     Movie.collection.insert_many new_movies.map(&:as_document)
-  end
-
-  def parse!
-    @doc = get_html_doc
-    get_movies
   end
 
   private
@@ -38,12 +25,6 @@ class MovieScraper::Amazon
         year: mbox.css('.a-size-small').map(&:text).select{|el| el.match /^\d{4}$/ }.first,
         stores: ['amazon'],
       })
-    end
-  end
-
-  def get_html_doc
-    Nokogiri::HTML(open(get_url)) do |config|
-      config.strict.nonet
     end
   end
 
