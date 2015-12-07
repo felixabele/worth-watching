@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe MovieScraper::Videoworld do
+RSpec.describe MovieScraper::Videoworld, vcr: {record: :once} do
 
   subject { MovieScraper::Videoworld.new }
 

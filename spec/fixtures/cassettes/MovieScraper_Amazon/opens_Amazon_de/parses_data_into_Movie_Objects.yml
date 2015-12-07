@@ -1,0 +1,132 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/search/movie?api_key=e79d57fc99d0e76a4b72c9652b1ca772&query=Beyond%20the%20Lights
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - public, max-age=21600
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 07 Dec 2015 12:48:58 GMT
+      Etag:
+      - d516b13671a4179d9b7b458a6ebdeb92
+      Server:
+      - openresty
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1449492548'
+      Content-Length:
+      - '879'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"page":1,"results":[{"poster_path":"\/bSV6w2P27AKX0QI2g44fZYtJFiS.jpg","adult":false,"overview":"A
+        talented young musician on the brink of super stardom struggles with the pressure
+        of her new-found success.","release_date":"2014-11-14","genre_ids":[18],"id":241771,"original_title":"Beyond
+        the Lights","original_language":"en","title":"Beyond the Lights","backdrop_path":"\/nvRmdMGrnjVCpU6bprI1JzmU1cb.jpg","popularity":1.464618,"vote_count":61,"video":false,"vote_average":6.86},{"poster_path":null,"adult":false,"overview":"2
+        Hour documentary about the future of Carbon and the Energy Supergrid","release_date":"2010-01-01","genre_ids":[],"id":268613,"original_title":"Beyond
+        the Lightswitch","original_language":"en","title":"Beyond the Lightswitch","backdrop_path":null,"popularity":1.000857,"vote_count":0,"video":false,"vote_average":0}],"total_results":2,"total_pages":1}'
+    http_version: 
+  recorded_at: Mon, 07 Dec 2015 12:48:58 GMT
+- request:
+    method: get
+    uri: http://api.themoviedb.org/3/search/movie?api_key=e79d57fc99d0e76a4b72c9652b1ca772&language=de&query=Beyond%20the%20Lights
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Access-Control-Allow-Origin:
+      - "*"
+      Cache-Control:
+      - public, max-age=21600
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 07 Dec 2015 12:59:45 GMT
+      Etag:
+      - f3173935ed8ac4bf073c1bcd63171f8a
+      Server:
+      - openresty
+      Vary:
+      - Accept-Encoding
+      X-Ratelimit-Limit:
+      - '40'
+      X-Ratelimit-Remaining:
+      - '39'
+      X-Ratelimit-Reset:
+      - '1449493195'
+      Content-Length:
+      - '1603'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJwYWdlIjoxLCJyZXN1bHRzIjpbeyJwb3N0ZXJfcGF0aCI6IlwvYlNWNncy
+        UDI3QUtYMFFJMmc0NGZaWXRKRmlTLmpwZyIsImFkdWx0IjpmYWxzZSwib3Zl
+        cnZpZXciOiJTZWl0IGlocmVyIEtpbmRoZWl0IHdpcmQgTm9uaSBKZWFuIGF1
+        ZiBlaW5lIEthcnJpZXJlIGFscyBTw6RuZ2VyaW4gdm9yYmVyZWl0ZXQuIElo
+        cmUgTXV0dGVyIGVybcO2Z2xpY2h0IGlociB2aWVsLCB2ZXJsYW5ndCBpaHIg
+        YWJlciBhdWNoIGFsbGVzIGFiLiBVbmQgdGF0c8OkY2hsaWNoIGdlbGluZ3Qg
+        Tm9uaSBzY2hsaWXDn2xpY2ggZGVyIGdyb8OfZSBEdXJjaGJydWNoLCBkZXIg
+        c29nYXIgbWl0IGVpbmVtIEdyYW1teSBnZWtyw7ZudCB3aXJkLiBEb2NoIGRp
+        ZXNlcyBuZXVlIExlYmVuIGltIFJhbXBlbmxpY2h0IHNldHp0IGlociBzY2hu
+        ZWxsIHNjaHdlciB6dSwgbXVzcyBzaWUgZG9jaCBqZW1hbmRlbiB2ZXJrw7Zy
+        cGVybiwgZGVyIHNpZSBzZWxic3QgZWlnZW50bGljaCBnYXIgbmljaHQgaXN0
+        LiBWb2xsZXIgVmVyendlaWZsdW5nIHZlcnN1Y2h0IHNpZSBzaWNoIGRhaGVy
+        IGVpbmVzIEFiZW5kcyBzb2dhciB2b20gQmFsa29uIHp1IHN0w7xyemVuLCB3
+        aXJkIGFiZXIgaW4gbGV0enRlciBTZWt1bmRlIHZvbiBkZW0ganVuZ2VuIFBv
+        bGl6aXN0ZW4gS2F6IGdlcmV0dGV0LiBFciB3ZWnDnyBhdXMgZWlnZW5lciBF
+        cmZhaHJ1bmcsIHdpZSBlcyBpc3QsIHp1IGV0d2FzIGdlcnRyaWViZW4genUg
+        d2VyZGVuLCBoaW50ZXIgZGVtIG1hbiBzZWxic3QgbmljaHQgc3RlaHQuIFNl
+        aW4gVmF0ZXIgZHLDpG5ndCBpaG4sIG5lYmVuIHNlaW5lciBLYXJyaWVyZSBh
+        bHMgR2VzZXR6ZXNow7x0ZXIsIGF1Y2ggaW4gZGllIFBvbGl0aWsgZWluenVz
+        dGVpZ2VuLiBFbnRzcHJlY2hlbmQgc2Nod2VyIGhhYmVuIGVzIGRpZSBiZWlk
+        ZW4sIGFscyBzaWUgc2ljaCBtZWhyIHVuZCBtZWhyIGluZWluYW5kZXIgdmVy
+        bGllYmVuIHVuZCBkYXMgZXJzdGUgTWFsIGRhcyB0dW4sIHdhcyBzaWUgc2Vs
+        YmVyIHdvbGxlbi4iLCJyZWxlYXNlX2RhdGUiOiIyMDE0LTExLTE0IiwiZ2Vu
+        cmVfaWRzIjpbMThdLCJpZCI6MjQxNzcxLCJvcmlnaW5hbF90aXRsZSI6IkJl
+        eW9uZCB0aGUgTGlnaHRzIiwib3JpZ2luYWxfbGFuZ3VhZ2UiOiJlbiIsInRp
+        dGxlIjoiQmV5b25kIHRoZSBMaWdodHMiLCJiYWNrZHJvcF9wYXRoIjoiXC9u
+        dlJtZE1Hcm5qVkNwVTZicHJJMUp6bVUxY2IuanBnIiwicG9wdWxhcml0eSI6
+        MS40NjQ2MTgsInZvdGVfY291bnQiOjYxLCJ2aWRlbyI6ZmFsc2UsInZvdGVf
+        YXZlcmFnZSI6Ni44Nn0seyJwb3N0ZXJfcGF0aCI6bnVsbCwiYWR1bHQiOmZh
+        bHNlLCJvdmVydmlldyI6IiIsInJlbGVhc2VfZGF0ZSI6IjIwMTAtMDEtMDEi
+        LCJnZW5yZV9pZHMiOltdLCJpZCI6MjY4NjEzLCJvcmlnaW5hbF90aXRsZSI6
+        IkJleW9uZCB0aGUgTGlnaHRzd2l0Y2giLCJvcmlnaW5hbF9sYW5ndWFnZSI6
+        ImVuIiwidGl0bGUiOiJCZXlvbmQgdGhlIExpZ2h0c3dpdGNoIiwiYmFja2Ry
+        b3BfcGF0aCI6bnVsbCwicG9wdWxhcml0eSI6MS4wMDA4NTcsInZvdGVfY291
+        bnQiOjAsInZpZGVvIjpmYWxzZSwidm90ZV9hdmVyYWdlIjowfV0sInRvdGFs
+        X3Jlc3VsdHMiOjIsInRvdGFsX3BhZ2VzIjoxfQ==
+    http_version: 
+  recorded_at: Mon, 07 Dec 2015 12:59:46 GMT
+recorded_with: VCR 2.9.3

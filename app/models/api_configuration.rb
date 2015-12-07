@@ -21,7 +21,6 @@ class ApiConfiguration
 
   def self.create_or_update
 
-    Tmdb::Api.key(Rails.application.secrets.tmdb_key)
     config_resource = Tmdb::Configuration.new
     new_config = self.new
 

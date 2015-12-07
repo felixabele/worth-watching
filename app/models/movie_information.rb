@@ -8,6 +8,7 @@ class MovieInformation
   field :original_title, type: String
   field :popularity, type: Float
   field :title, type: String
+  field :overview, type: String
   field :video, type: Boolean
   field :vote_average, type: Float
   field :vote_count, type: Integer
@@ -27,8 +28,6 @@ class MovieInformation
 
   # gets infos about a movie from TMDB-API
   def self.load_by_movie movie
-
-    Tmdb::Api.key(Rails.application.secrets.tmdb_key)
     search = Tmdb::Search.new
     search.resource('movie')
     search.query(movie.title)

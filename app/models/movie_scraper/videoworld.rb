@@ -12,8 +12,16 @@ class MovieScraper::Videoworld
   end
 
   def save!
-    existing_movies = Movie.where(title: {'$in' => @movies.map(&:title)}).pluck(:title)
-    new_movies = @movies.reject{|m| existing_movies.find_index{|em| em == m.title}}
+    existing_movies = Movie.where(title: {'$in' => @movies.map(&:title)})
+    existing_movies_title = existing_movies.pluck(:title)
+
+    # update existing movies
+    existing_movies.where(stores: {'$ne' => 'videoworld'}).each do |m|
+      m.stores.push('videoworld')
+      m.save
+    end
+
+    new_movies = @movies.reject{|m| existing_movies_title.find_index{|em| em == m.title}}
     Movie.collection.insert_many new_movies.map(&:as_document)
   end
 
@@ -47,6 +55,7 @@ class MovieScraper::Videoworld
         country: line_split(movie_atts[3])[0],
         year: line_split(movie_atts[3])[1],
         description: movie_atts[5],
+        stores: ['videoworld'],
       })
     end
   end
