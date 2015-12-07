@@ -21,11 +21,14 @@ class Movie
 
   def load_information
     if last_information_update.nil? || last_information_update < 7.days.ago
-      self.update_attributes({
-        information: MovieInformation.load_by_movie(self),
-        last_information_update: Time.now})
 
-      EventLogger.log! "Updated information", "for movie: '#{self.title}'", {id: self.id}
+      if movie_info = MovieInformation.load_by_movie(self)
+        self.update_attributes({
+          information: movie_info,
+          last_information_update: Time.now
+        })
+        EventLogger.log! "Updated information", "for movie: '#{self.title}'", {id: self.id}
+      end
     end
     information
   end

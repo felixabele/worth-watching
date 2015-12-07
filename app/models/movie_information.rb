@@ -33,7 +33,7 @@ class MovieInformation
     search.resource('movie')
     search.query(movie.title)
 
-    if data = search.fetch.select {|info| (Date.parse(info['release_date']).year rescue 0) == movie.year}
+    if data = search.fetch.select {|info| (movie.year - (Date.parse(info['release_date']).year rescue 0)) < 3}
       new(data.first)
     else
       EventLogger.log! "no information found", "could not find information for #{movie.title} from year: #{movie.year}"
