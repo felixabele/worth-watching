@@ -29,7 +29,7 @@ class Movie
   end
 
   def load_information force=false
-    if force || (last_information_update.nil? || last_information_update < 7.days.ago)
+    if force || information_outdated?
 
       if movie_info = MovieInformation.load_by_movie(self)
         self.update_attributes({
@@ -40,6 +40,10 @@ class Movie
       end
     end
     information
+  end
+
+  def information_outdated?
+    last_information_update.nil? || last_information_update < 7.days.ago
   end
 
   def moviedb_path
