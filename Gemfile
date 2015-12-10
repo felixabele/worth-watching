@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'nokogiri'
 gem 'active_model_serializers'
 gem 'mongoid-serializer'
+gem 'sorcery'
 
 gem 'themoviedb'
 

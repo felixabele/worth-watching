@@ -2,6 +2,8 @@ en:
   layouts:
     navigation_links:
       movies: Movies
+      login: Login
+      logout: Logout
 
   movies:
     index:
@@ -17,3 +19,10 @@ en:
 
     show:
       moviedb_path: View more Information at themoviedb.org
+
+  user_sessions:
+    new:
+      login: Login
+      signin_header: Please Sign In
+      email: E-Mail
+      password: Password

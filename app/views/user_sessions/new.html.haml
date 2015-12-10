@@ -1,0 +1,13 @@
+= form_tag user_sessions_path, method: :post, class: 'form-signin' do
+
+  %h2.form-signin-heading
+    = t('.signin_header')
+
+  .form-group
+    = label_tag :email, t('.email'), class: 'sr-only'
+    = text_field_tag :email, '', class: 'form-control'
+
+    = label_tag :password, t('.password'), class: 'sr-only'
+    = password_field_tag :password, '', class: 'form-control'
+
+  = button_tag t('.login'), class: 'btn btn-lg btn-primary btn-block'

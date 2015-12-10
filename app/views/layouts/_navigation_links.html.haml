@@ -1,1 +1,6 @@
 %li= link_to t('.movies'), movies_path
+
+- if current_user
+  %li= link_to t('.logout'), :logout, method: :post
+- else
+  %li= link_to t('.login'), :login
