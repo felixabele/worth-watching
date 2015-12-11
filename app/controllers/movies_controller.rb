@@ -7,4 +7,9 @@ class MoviesController < ApplicationController
     @movie = Movie.find(params[:id])
     render layout: false
   end
+
+  def edit
+    @movie = Movie.find(params[:id])
+    render layout: false
+  end
 end

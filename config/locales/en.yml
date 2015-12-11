@@ -1,9 +1,16 @@
 en:
+
+  general:
+    ok: ok
+
   layouts:
     navigation_links:
       movies: Movies
       login: Login
       logout: Logout
+
+  movie:
+    title_alternatives: Alternative Titles
 
   movies:
     index:

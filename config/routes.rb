@@ -7,9 +7,10 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'movies', to: 'movies#index'
+    put 'movies', to: 'movies#update'
   end
 
-  resources :movies, only: [:index, :show]
+  resources :movies, only: [:index, :show, :edit]
 
   root to: 'visitors#index'
 end

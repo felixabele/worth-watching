@@ -1,0 +1,9 @@
+%form{ng: {controller: 'EditMovieCtrl'}, data: {movie: @movie.to_json}}
+
+  .form-group
+    = label_tag :title_alternatives, t('movie.title_alternatives'), class: 'control-label'
+    .input-group{ng: {class: "{'has-warning': attribute_changed('title_alternatives'), 'has-success': !attribute_changed('title_alternatives')}"}}
+      %input.form-control{type: 'text', ng: {model: 'title_alternatives_string'}}
+      .input-group-btn
+        %button.btn.btn-default{ng: {click: 'update_title_alternatives()'}}
+          = t('general.ok')

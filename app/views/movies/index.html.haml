@@ -33,7 +33,11 @@
         %tr.movie{dir: {paginate: 'movie in movies | orderBy:filter.sort_type:filter.sort_reverse | filter:{title: filter.search_term} | minVoting:filter.min_vote | sinceDays:filter.available_since | itemsPerPage:20'}}
           %td
             %button.btn.btn-info.btn-xs{popover: {title: "{{movie.title}}", placement: 'right', trigger: 'focus'}, "uib-popover-template" => "movie.path"}
-              %span.glyphicon.glyphicon-info-sign{'aria-hidden' => "true"}
+              = glyphicon 'info-sign'
+
+            - if logged_in?
+              %button.btn.btn-success.btn-xs{popover: {title: "Edit {{movie.title}}", placement: 'right'}, "uib-popover-template" => "movie.edit_path"}
+                = glyphicon 'edit'
           %td
             %strong {{movie.title}}
           %td.hidden-xs
