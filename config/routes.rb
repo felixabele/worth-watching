@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post 'logout' => 'user_sessions#destroy', :as => :logout
 
   namespace :api do
-    resources :movies, only: [:index, :update]
+    resources :movies, only: [:index, :update, :show]
   end
 
   resources :movies, only: [:index, :show, :edit]

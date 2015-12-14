@@ -11,7 +11,7 @@ class MoviesController < ApplicationController
   end
 
   def edit
-    @movie = Movie.find(params[:id])
+    @movie_id = params[:id]
     render layout: false
   end
 end

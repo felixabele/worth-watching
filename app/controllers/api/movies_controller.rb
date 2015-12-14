@@ -9,12 +9,17 @@ module Api
 
     def update
       movie = Movie.find(params[:id])
-      puts movie_params
+
       if movie.update_attributes(movie_params)
         render json: MovieSerializer.new(movie)
       else
         head 404
       end
+    end
+
+    def show
+      movie = Movie.find(params[:id])
+      render json: MovieSerializer.new(movie)
     end
 
     private
