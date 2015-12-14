@@ -6,3 +6,16 @@
       .input-group-btn
         %button.btn.btn-default{ng: {click: 'update_title_alternatives()'}}
           = t('general.ok')
+
+    .input-group.margin-top-20
+      .alert.alert-danger{ng: {if: "edit_movie.movie_information_status == 'missing'"}}
+        = t('.movie_information.missing')
+      .alert.alert-warning{ng: {if: "edit_movie.movie_information_status == 'outdated'"}}
+        = t('.movie_information.outdated')
+        {{edit_movie.movie.last_information_update}}
+      .alert.alert-success{ng: {if: "edit_movie.movie_information_status == 'ok'"}}
+        = t('.movie_information.ok')
+        ({{edit_movie.movie.last_information_update | date}})
+
+      %button.btn.btn-success{ng: {click: 'update_movie_information()'}}
+        = t('.update_movie_information')

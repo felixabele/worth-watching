@@ -24,6 +24,13 @@ en:
         min_vote: Minimum Vote
         available_since: Available Since
 
+    edit:
+      movie_information:
+        ok: "Movie Information status: OK"
+        missing: "Movie Information status: No Synchronization found"
+        outdated: "Movie Information status: Older then 7 Days"
+      update_movie_information: Update Movie Information
+
     show:
       moviedb_path: View more Information at themoviedb.org
 

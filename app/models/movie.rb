@@ -51,4 +51,5 @@ class Movie
       "https://www.themoviedb.org/movie/#{information._id}"
     end
   end
+
 end
