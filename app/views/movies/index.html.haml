@@ -32,7 +32,7 @@
       %tbody
         %tr.movie{dir: {paginate: 'movie in movies | orderBy:filter.sort_type:filter.sort_reverse | filter:{title: filter.search_term} | minVoting:filter.min_vote | sinceDays:filter.available_since | itemsPerPage:20'}}
           %td
-            %button.btn.btn-info.btn-xs{popover: {title: "{{movie.title}}", placement: 'right', trigger: 'focus'}, "uib-popover-template" => "movie.path"}
+            %button.btn.btn-info.btn-xs{ng: {if: 'movie.information'}, popover: {title: "{{movie.title}}", placement: 'right', trigger: 'focus'}, "uib-popover-template" => "movie.path"}
               = glyphicon 'info-sign'
 
             - if logged_in?

@@ -32,10 +32,10 @@ class Movie
     if force || information_outdated?
 
       if movie_info = MovieInformation.load_by_movie(self)
-        self.update_attributes({
-          information: movie_info,
-          last_information_update: Time.now
-        })
+        self.information = movie_info
+        self.last_information_update = Time.now
+        self.save!
+
         EventLogger.log! "Updated information", "for movie: '#{self.title}'", {id: self.id}
       end
     end

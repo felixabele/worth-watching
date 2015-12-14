@@ -9,6 +9,10 @@ angular.module('app.filters')
 
       $filter('filter')(
         list, (val) ->
-          val.information.vote_average >= min_vote)
+          if val.information
+            val.information.vote_average >= min_vote
+          else
+             0 >= min_vote
+      )
 
 ]

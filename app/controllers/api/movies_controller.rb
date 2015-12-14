@@ -5,7 +5,8 @@ module Api
     before_filter :find_movie, except: [:index]
 
     def index
-      render json: Movie.with_information.map{ |m| MoviePartialSerializer.new(m).serializable_hash }
+      movies = logged_in? ? Movie.all : Movie.with_information
+      render json: movies.map{ |m| MoviePartialSerializer.new(m).serializable_hash }
     end
 
     def update

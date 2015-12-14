@@ -52,7 +52,7 @@ angular.module('app.controllers')
     }, (success) ->
       $scope.edit_movie.movie = success.movie
       $scope.edit_movie.persisted_movie = angular.copy($scope.edit_movie.movie)
-      $scope.edit_movie.movie_information_status = movie_information_status(movie_data.movie.last_information_update)
+      $scope.edit_movie.movie_information_status = movie_information_status($scope.edit_movie.movie.last_information_update)
 
 
   # --- load Movies from API
