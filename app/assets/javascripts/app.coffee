@@ -18,6 +18,15 @@ app = angular.module('WorthWatching',[
   'ui.bootstrap'
 ])
 
+app.config [
+  '$httpProvider'
+
+  ($httpProvider) ->
+    token = $("meta[name='csrf-token']").attr("content")
+    $httpProvider.defaults.headers.common['X-CSRF-Token'] = token
+    $httpProvider.defaults.headers.common['Accept'] = 'application/json;q=0.9,text/plain;q=0.8,text/html;q=0.7'
+]
+
 angular.module 'app.controllers', []
 angular.module 'app.directives', []
 angular.module 'app.filters', []

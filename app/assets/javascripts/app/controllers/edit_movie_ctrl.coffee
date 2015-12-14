@@ -19,5 +19,6 @@ angular.module('app.controllers')
     $scope.movie[attr] != $scope.persisted_movie[attr]
 
   $scope.update_title_alternatives = ->
-    console.log $scope.movie.title_alternatives
+    Movies.update(movie: $scope.movie) (success) ->
+      $scope.movie = success
 ]

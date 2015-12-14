@@ -16,7 +16,7 @@ class MovieScraper::Base
   private
 
   def get_html_doc
-    Nokogiri::HTML(open(get_url, 'User-Agent' => user_agent), nil, "UTF-8") do |config|
+    Nokogiri::HTML(open(get_url, 'User-Agent' => user_agent)) do |config|
       config.strict.nonet
     end
   end

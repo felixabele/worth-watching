@@ -1,8 +1,8 @@
 angular.module('app.resources')
 
 .factory 'Movies', [ '$resource', ($resource) ->
-  $resource "/api/movies/:movie_id", {},
+  $resource "/api/movies/:id", {id: '@movie.id'},
 
-    'update':
+    update:
       method:'PUT'
 ]

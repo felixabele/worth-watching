@@ -57,7 +57,7 @@ class MovieScraper::Videoworld < MovieScraper::Base
   end
 
   def get_url
-    "http://www.videoworld.de/neuheiten-DVD-#{@current_page > 0 ? @current_page : ''}-/index.html"
+    "http://www.videoworld.de/neuheiten-DVD-#{@current_page.to_i}-/index.html"
   end
 
   # splits lines like "some-label: USA / 2013" into ["USA", "2013"]

@@ -26,13 +26,13 @@ RSpec.describe MovieScraper::Amazon, vcr: {record: :once} do
 
     it 'saves all movies into database' do
       subject.save!
-      expect(Movie.count).to be 60
+      expect(Movie.count).to be 23
     end
 
     it 'does not save movies twice' do
       subject.save!
       subject.save!
-      expect(Movie.count).to be 60
+      expect(Movie.count).to be 23
     end
   end
 end

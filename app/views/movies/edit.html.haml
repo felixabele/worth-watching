@@ -1,5 +1,4 @@
-%form{ng: {controller: 'EditMovieCtrl'}, data: {movie: @movie.to_json}}
-
+= content_tag :form, 'ng-controller' => 'EditMovieCtrl', data: MovieSerializer.new(@movie).as_json do
   .form-group
     = label_tag :title_alternatives, t('movie.title_alternatives'), class: 'control-label'
     .input-group{ng: {class: "{'has-warning': attribute_changed('title_alternatives'), 'has-success': !attribute_changed('title_alternatives')}"}}
